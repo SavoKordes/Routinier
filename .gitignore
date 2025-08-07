@@ -1,0 +1,15 @@
+# Node modules (if you use JS tools later)
+node_modules/
+
+# Build output
+dist/
+build/
+
+# System files
+.DS_Store
+
+# Logs
+*.log
+
+# Environment variables
+.env
