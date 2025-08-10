@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Routinier</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#444444">
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 20px auto; max-width: 420px; padding: 0 16px; }
+    h1 { text-align: center; }
+    #bar { display: flex; gap: 8px; margin: 14px 0; }
+    input[type=text] { flex: 1; padding: 8px; }
+    ul { list-style: none; padding: 0; }
+    li { display: flex; align-items: center; gap: 8px; background: #f4f4f4; margin: 8px 0; padding: 10px; border-radius: 8px; }
+    button { cursor: pointer; }
+    #resetBtn { margin-top: 10px; width: 100%; padding: 8px; }
+  </style>
+</head>
+<body>
+  <h1>🗓️ Routinier</h1>
+
+  <div id="bar">
+    <input id="taskInput" type="text" placeholder="Add a new task" autocomplete="off" />
+    <button id="addBtn">➕ Add</button>
+  </div>
+
+  <ul id="list"></ul>
+
+  <button id="resetBtn">🔁 Reset for New Day</button>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').catch(console.error);
+      });
+    }
+  </script>
+</body>
+</html>
